@@ -24,7 +24,7 @@ namespace Loadlibrayy.Extensions
             var shellcodeRemoteCall = process.AllocateAndWrite(shellcodeBuffer, NT.AllocationType.Commit | NT.AllocationType.Reserve, NT.MemoryProtection.ExecuteReadWrite);
             
             // CALL THE SHELLCODE TO CALL OUR SHELLCODE
-            var shellcodeThread = process.CreateThread(shellcodeRemoteCall, 0, out ulong threadId);
+            var shellcodeThread = process.CreateThread(shellcodeRemoteCall, 0, out threadId);
 
             // WAIT FOR THE THREAD TO FINISH
             NTM.WaitForThread(shellcodeThread);
